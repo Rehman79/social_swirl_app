@@ -1,5 +1,8 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
+import 'package:social_swirl_app/utils/cont_stack_services.dart';
+import 'package:social_swirl_app/utils/custom_button.dart';
+import 'package:social_swirl_app/utils/custom_text.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -8,7 +11,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Homepage"),
+        title: const Text("Homepage"),
       ),
       drawer: Drawer(
         child: Padding(
@@ -21,59 +24,126 @@ class Homepage extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ListTile(
-                      title: Text("Services"),
+                      title: const Text("Services"),
                       onTap: () {
                         Navigator.pop(context);
                         Navigator.pushNamed(context, '/services');
                       },
-                      style: ListTileStyle.drawer,
                     ),
                     ListTile(
-                        title: Text("Remote Jobs"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pushNamed(context, '/remote_jobs');
-                        }),
+                      title: const Text("Remote Jobs"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/remote_jobs');
+                      },
+                    ),
                     ListTile(
-                        title: Text("Business"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pushNamed(context, '/business');
-                        }),
+                      title: const Text("Business"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/business');
+                      },
+                    ),
                     ListTile(
-                        title: Text("E-Learning"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pushNamed(context, '/e_learning');
-                        }),
+                      title: const Text("E-Learning"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/e_learning');
+                      },
+                    ),
                     ListTile(
-                        title: Text("About Us"),
-                        onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pushNamed(context, '/about');
-                        }),
+                      title: const Text("About Us"),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/about');
+                      },
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(
-              'SOCIAL SWIRL',
-              style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.white,
+                  Color(0xFF99D2ED),
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
             ),
-            Text('Explore the world of web development with Soacial Swirl. Join our user-friendly courses led by industry')
-          ],
+            child: Column(
+              children: [
+                CustomText(
+                  content: 'SOCIAL SWIRL',
+                  is_bold: true,
+                  fontsize: 40,
+                  color: Colors.blue,
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CustomText(
+                    content: 'Explore the world of web development with Social Swirl. Join our user-friendly courses led by industry experts, offering hands-on experiences and a clear path to mastering coding. Join us to unlock your coding skills and confidently shape your future success.',
+                    fontsize: 16,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  content: 'Services',
+                  onTap: () => Navigator.pushNamed(context, '/services'),
+                ),
+                const SizedBox(height: 30),
+                CustomText(
+                  content: 'Welcome To Social Swirl',
+                  is_bold: true,
+                  fontsize: 30,
+                ),
+                const SizedBox(height: 20),
+                CustomText(
+                  content: 'Best Software House Of Pakistan',
+                  color: Colors.blue,
+                  is_bold: true,
+                  fontsize: 18,
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CustomText(
+                    content:
+                    "The company's mission is to provide high-quality software solutions and media that help businesses and individuals optimise their online presence and achieve their goals. With a team of experienced professionals and a commitment to excellence, Social Swirl is dedicated to providing personalised, reliable, and affordable services to its clients. AIMS Our mission is to provide high-quality software solutions and media services that help businesses and individuals optimise their online presence and achieve their goals.",
+                    fontsize: 15,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                CustomButton(
+                  content: 'Courses',
+                  onTap: () => Navigator.pushNamed(context, '/courses'),
+                ),
+                const SizedBox(height: 30),
+                 CustomText(
+                  content: 'Our Services',
+                  is_bold: true,
+                ),
+                const ContStackServices(),
+                CustomText(content: 'E-Learning',is_bold: true,is_gilroy: false,fontsize: 25,),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CustomText(content: 'Take Classes From industry experts in purpose built campuses. Ideoversity is a leading Training Institute in Pakistan.',fontsize: 15,is_gilroy: false,),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
