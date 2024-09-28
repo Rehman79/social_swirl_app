@@ -4,8 +4,8 @@ import 'package:social_swirl_app/utils/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({super.key,required this.content,required this.onTap});
-  String content;
-  VoidCallback onTap;
+ final String content;
+ final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {
-  String content;
-  double fontsize;
-  Color color;
-  bool is_white;
-  bool is_gilroy;
-  bool is_bold;
-  TextAlign textAlign;
+ final String content;
+ final double fontsize;
+ final Color color;
+ final bool is_white;
+ final bool is_gilroy;
+ final bool is_bold;
+ final TextAlign textAlign;
   CustomText(
       {super.key,
       required this.content,
