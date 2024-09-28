@@ -8,6 +8,7 @@ class CustomText extends StatelessWidget {
   bool is_white;
   bool is_gilroy;
   bool is_bold;
+  TextAlign textAlign;
   CustomText(
       {super.key,
       required this.content,
@@ -15,17 +16,19 @@ class CustomText extends StatelessWidget {
       this.color = Colors.black,
       this.is_white=false,
       this.is_gilroy=true,
-      this.is_bold=false});
+      this.is_bold=false,
+      this.textAlign=TextAlign.center});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       content,
+      textAlign: textAlign,
       style: TextStyle(
         fontWeight: is_bold?FontWeight.w700:FontWeight.normal,
         fontSize: fontsize,
         color: is_white?Colors.white:color,
-        fontFamily: is_gilroy?'Gilroy':'Montserrat'
+        fontFamily: is_gilroy?'Gilroy':'Montserrat',
       ),
     );
   }

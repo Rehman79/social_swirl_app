@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:social_swirl_app/utils/cont_stack_services.dart';
 import 'package:social_swirl_app/utils/custom_button.dart';
 import 'package:social_swirl_app/utils/custom_text.dart';
+import 'package:social_swirl_app/utils/learn_card.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -88,6 +89,7 @@ class Homepage extends StatelessWidget {
                   is_bold: true,
                   fontsize: 40,
                   color: Colors.blue,
+                  is_gilroy: false,
                 ),
                 const SizedBox(height: 20),
                 Padding(
@@ -141,6 +143,18 @@ class Homepage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: CustomText(content: 'Take Classes From industry experts in purpose built campuses. Ideoversity is a leading Training Institute in Pakistan.',fontsize: 15,is_gilroy: false,),
                 ),
+                SizedBox(height: 20,),
+                CustomButton(content: 'Enroll Now', onTap:(){}),
+                SizedBox(height: 20,),
+                LearnCard(icon: '', heading: 'Certification', descr: "State of Art Learning Experience with \n certificate from renown organization"),
+                SizedBox(height: 15,),
+                LearnCard(icon: '', heading: 'Classes', descr: "World class Instructors guiding everyone \n with practical implementation"),
+                SizedBox(height: 15,),
+                LearnCard(icon: '', heading: 'Private Groups', descr: "Lifetime access to groups that helps \n you find the right career & opportunity"),
+                SizedBox(height: 15,),
+                LearnCard(icon: 'lib/assets/briefcase.png', heading: 'Internship', descr: "This is designed to enhance interns skills \n that they need to succeed in their careers"),
+                SizedBox(height: 20,),
+
               ],
             ),
           ),
