@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:social_swirl_app/utils/cont_stack_expert.dart';
 import 'package:social_swirl_app/utils/cont_stack_services.dart';
 import 'package:social_swirl_app/utils/custom_button.dart';
 import 'package:social_swirl_app/utils/custom_text.dart';
@@ -135,6 +136,7 @@ class Homepage extends StatelessWidget {
                  CustomText(
                   content: 'Our Services',
                   is_bold: true,
+                   fontsize: 30,
                 ),
                 const ContStackServices(),
                 CustomText(content: 'E-Learning',is_bold: true,is_gilroy: false,fontsize: 25,),
@@ -146,15 +148,21 @@ class Homepage extends StatelessWidget {
                 SizedBox(height: 20,),
                 CustomButton(content: 'Enroll Now', onTap:(){}),
                 SizedBox(height: 20,),
-                LearnCard(icon: '', heading: 'Certification', descr: "State of Art Learning Experience with \n certificate from renown organization"),
+                LearnCard(icon: 'lib/assets/certificate.png', heading: 'Certification', descr: "State of Art Learning Experience with \n certificate from renown organization"),
                 SizedBox(height: 15,),
-                LearnCard(icon: '', heading: 'Classes', descr: "World class Instructors guiding everyone \n with practical implementation"),
+                LearnCard(icon: 'lib/assets/mentoring.png', heading: 'Classes', descr: "World class Instructors guiding everyone \n with practical implementation"),
                 SizedBox(height: 15,),
-                LearnCard(icon: '', heading: 'Private Groups', descr: "Lifetime access to groups that helps \n you find the right career & opportunity"),
+                LearnCard(icon: 'lib/assets/video-conference.png', heading: 'Private Groups', descr: "Lifetime access to groups that helps \n you find the right career & opportunity"),
                 SizedBox(height: 15,),
-                LearnCard(icon: 'lib/assets/briefcase.png', heading: 'Internship', descr: "This is designed to enhance interns skills \n that they need to succeed in their careers"),
+                LearnCard(icon: 'lib/assets/internship.png', heading: 'Internship', descr: "This is designed to enhance interns skills \n that they need to succeed in their careers"),
                 SizedBox(height: 20,),
-
+                CustomText(
+                  content: 'Our Expert',
+                  is_bold: true,
+                  fontsize: 30,
+                ),
+                ContStackExpert(),
+                SizedBox(height: 30,),
               ],
             ),
           ),
