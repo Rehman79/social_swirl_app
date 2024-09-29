@@ -7,12 +7,13 @@ class ContStackExpert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Stack(
       children: [
         Container(
           width: double.infinity,
           height: 300,
-          color: Colors.white,
+          color: Colors.transparent,
         ),
         Positioned(
           top: 80,
@@ -34,11 +35,11 @@ class ContStackExpert extends StatelessWidget {
         ),
         Positioned(
           top: 50,
-          height: 210,
+          height: size.height * 0.25,
           width: size.width,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
+            children: const [
               ExpertCard(
                   image: 'lib/assets/zaidsmm.jpg',
                   name: 'Zaid',
