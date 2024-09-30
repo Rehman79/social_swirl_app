@@ -41,7 +41,6 @@ class ExpertCard extends StatelessWidget {
           CustomText(content: name),
           const SizedBox(height: 10),
           CustomText(content: role, is_gilroy: false, fontsize: 14),
-          const SizedBox(height: 10),
         ],
       ),
     );

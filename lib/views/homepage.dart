@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:social_swirl_app/utils/comp_list.dart';
 import 'package:social_swirl_app/utils/cont_stack_expert.dart';
 import 'package:social_swirl_app/utils/cont_stack_services.dart';
 import 'package:social_swirl_app/utils/custom_button.dart';
@@ -162,7 +163,41 @@ class Homepage extends StatelessWidget {
                   fontsize: 30,
                 ),
                 ContStackExpert(),
-                SizedBox(height: 30,),
+                SizedBox(height: 20,),
+                CustomText(content: 'Over 50+ employees working',color: Colors.blue,is_bold: true,),
+                CustomText(content: 'Remote Careers',is_gilroy: false,is_bold: true,fontsize: 35,),
+                SizedBox(height: 20,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: CustomText(content: "Discover endless opportunities with our curated list of remote jobs. Whether you're seeking flexibility, a better work-life balance, or exploring new career paths, find your home dream job from the comfort of your home. Join the remote work revolution today!",fontsize: 17,),
+                ),
+                SizedBox(height: 20,),
+                CustomButton(content: 'Apply Now', onTap: (){}),
+                SizedBox(height: 20,),
+                Image.asset('lib/assets/Home_Remote.png',fit: BoxFit.cover,scale: 2,),
+                SizedBox(height: 20,),
+                CustomText(content: 'What Companies Say \n About Us',is_bold: true,fontsize: 25,),
+                SizedBox(height: 20,),
+                CompList(),
+                SizedBox(height: 20,),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+                      CustomText(content: 'Start a Project with us \n Today',is_white: true,is_bold: true,fontsize: 25,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: CustomText(content: 'Call us now to schedule as online appointment and get your project successfully completed',is_white: true,is_gilroy: false,fontsize: 17,),
+                      ),
+                      SizedBox(height: 20,),
+                      CustomButton(content: 'Get Started', onTap: (){}),
+                      SizedBox(height: 20,),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
