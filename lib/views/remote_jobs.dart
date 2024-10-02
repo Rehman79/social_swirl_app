@@ -60,6 +60,9 @@ class RemoteJobs extends StatelessWidget {
         CareerCard(imagePath: 'lib/assets/seoopt.jpg', title: 'SEO Expert', location: 'Lahore', description: 'Optmize websites to improve search engine rankings.', recruitmentInfo: 'This job represented by DK Recruitment'),
         SizedBox(height: 10,),
         CareerCard(imagePath: 'lib/assets/ssm.jpg', title: 'Social Media Marketer', location: 'Lahore', description: 'Manage and strategize social media and compaigns.', recruitmentInfo: 'This job represented by DK Recruitment'),
+        SizedBox(height: 10,),
+        CustomButton(content: 'Read More', onTap: (){}),
+        SizedBox(height: 40,),
       ],
     ));
   }
