@@ -5,6 +5,7 @@ import 'package:social_swirl_app/utils/cont_stack_services.dart';
 import 'package:social_swirl_app/utils/custom_button.dart';
 import 'package:social_swirl_app/utils/custom_scaffold.dart';
 import 'package:social_swirl_app/utils/custom_text.dart';
+import 'package:social_swirl_app/utils/getstarted_cont.dart';
 import 'package:social_swirl_app/utils/learn_card.dart';
 
 class Homepage extends StatelessWidget {
@@ -59,7 +60,7 @@ class Homepage extends StatelessWidget {
         const SizedBox(height: 10),
         CustomButton(
           content: 'Courses',
-          onTap: () => Navigator.pushNamed(context, '/courses'),
+          onTap: () => Navigator.pushNamed(context, '/e_learning'),
         ),
         const SizedBox(height: 30),
         CustomText(
@@ -108,24 +109,7 @@ class Homepage extends StatelessWidget {
         SizedBox(height: 20,),
         CompList(),
         SizedBox(height: 20,),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.blue,
-          ),
-          child: Column(
-            children: [
-              SizedBox(height: 20,),
-              CustomText(content: 'Start a Project with us \n Today',is_white: true,is_bold: true,fontsize: 25,),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: CustomText(content: 'Call us now to schedule as online appointment and get your project successfully completed',is_white: true,is_gilroy: false,fontsize: 17,),
-              ),
-              SizedBox(height: 20,),
-              CustomButton(content: 'Get Started', onTap: (){}),
-              SizedBox(height: 20,),
-            ],
-          ),
-        ),
+        GetstartedCont(),
       ],
     ),);
   }

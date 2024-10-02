@@ -62,7 +62,7 @@ class _ProjectListState extends State<ProjectList> {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.imagePaths[index])),
+                image: DecorationImage(image: AssetImage(widget.imagePaths[index]),fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
@@ -71,20 +71,46 @@ class _ProjectListState extends State<ProjectList> {
                     spreadRadius: 5,
                   ),
                 ],
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.2),
+                  ],
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 10),
-                  CustomText(
-                    content: widget.comp_name[index],
-                    is_bold: true,
-                    is_white: true,
-                    is_gilroy: false,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.6),
+                    ],
                   ),
-                  const SizedBox(height: 10),
-                  CustomText(content: widget.descr[index]),
-                ],
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 5),
+                      CustomText(
+                        content: widget.comp_name[index],
+                        is_bold: true,
+                        is_white: true,
+                        is_gilroy: false,
+                        fontsize: 35,
+                      ),
+                      const SizedBox(height: 5),
+                      CustomText(content: widget.descr[index],textAlign: TextAlign.start,fontsize: 17,is_white: true,),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

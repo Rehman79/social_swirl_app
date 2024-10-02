@@ -7,6 +7,7 @@ import 'package:social_swirl_app/utils/faq_widget.dart';
 import 'package:social_swirl_app/utils/project_list.dart';
 
 import '../utils/custom_text.dart';
+import '../utils/getstarted_cont.dart';
 
 class Services extends StatelessWidget {
   const Services({super.key});
@@ -56,11 +57,13 @@ class Services extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(height: 20,),
+            Image.asset('lib/assets/swirlbanner.png',fit: BoxFit.fitWidth,),
+            SizedBox(height: 20,),
             CustomText(
               content: 'Where We \n Support',
               is_bold: true,
               fontsize: 40,
-              color: Colors.blue,
               is_gilroy: false,
             ),
             const SizedBox(height: 20),
@@ -105,8 +108,9 @@ class Services extends StatelessWidget {
             SizedBox(height: 20,),
             CustomText(content: "Our Projects",is_bold: true,is_gilroy: false,fontsize: 30,),
             SizedBox(height: 20,),
-            SizedBox(height: 300,child: ProjectList(imagePaths: imagePathsproject, comp_name: comp_name, descr: descr)),
+            SizedBox(height: 400,child: ProjectList(imagePaths: imagePathsproject, comp_name: comp_name, descr: descr)),
             SizedBox(height: 20,),
+            GetstartedCont(),
           ],
         ),
       ),
