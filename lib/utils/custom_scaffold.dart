@@ -6,8 +6,9 @@ import 'drawer.dart';
 class CustomScaffold extends StatelessWidget {
   final String appbartitle;
   final Widget child;
+  final bool is_scroll;
 
-  const CustomScaffold({Key? key, required this.appbartitle, required this.child}) : super(key: key);
+  const CustomScaffold({Key? key, required this.appbartitle, required this.child, this.is_scroll=true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,7 @@ class CustomScaffold extends StatelessWidget {
         title: Text(appbartitle),
       ),
       drawer: const CustomDrawer(),
-      body: SingleChildScrollView(
-        child: Center(
+      body: is_scroll?SingleChildScrollView(child: Center(
           child: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -31,6 +31,19 @@ class CustomScaffold extends StatelessWidget {
             ),
             child: child,
           ),
+        ),):Center(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Color(0xFF99D2ED),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+          ),
+          child: child,
         ),
       ),
     );
