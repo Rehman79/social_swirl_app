@@ -33,6 +33,7 @@ class CustomDrawer extends StatelessWidget {
               child: ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
+                  _buildListTile(context, "Home", '/homepage'),
                   _buildListTile(context, "Services", '/services'),
                   _buildListTile(context, "Remote Jobs", '/remote_jobs'),
                   _buildListTile(context, "Business Outsourcing", '/business'),
