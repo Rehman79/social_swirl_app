@@ -1,4 +1,4 @@
-import 'dart:async'; // Import for Timer
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class FadeImageListView extends StatefulWidget {
@@ -43,6 +43,13 @@ class _FadeImageListViewState extends State<FadeImageListView> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    // Responsive dimensions
+    final imageWidth = screenWidth * 0.8;
+    final imageHeight = screenHeight * 0.4;
+
     return PageView.builder(
       controller: _pageController,
       itemCount: widget.imagePaths.length,
@@ -53,7 +60,7 @@ class _FadeImageListViewState extends State<FadeImageListView> {
       },
       itemBuilder: (context, index) {
         return AnimatedOpacity(
-          opacity: _currentPage == index ? 1.0 : 0.0,  // Show only the current page with full opacity
+          opacity: _currentPage == index ? 1.0 : 0.0,
           duration: const Duration(milliseconds: 800),
           child: Center(
             child: Container(
@@ -71,8 +78,8 @@ class _FadeImageListViewState extends State<FadeImageListView> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: SizedBox(
-                  width: 200, // Make image smaller
-                  height: 200, // Set height to maintain aspect ratio
+                  width: imageWidth,
+                  height: imageHeight,
                   child: Image.asset(
                     widget.imagePaths[index],
                     fit: BoxFit.cover,

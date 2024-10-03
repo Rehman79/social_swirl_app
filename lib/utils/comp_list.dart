@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'custom_text.dart';
 
 class CompList extends StatefulWidget {
@@ -42,20 +41,23 @@ class _CompListState extends State<CompList> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-          height: 300,
+          height: screenHeight * 0.4,
           child: PageView(
             controller: _pageController,
             children: [
               _buildCard('Elisha', 'lib/assets/elisha.jfif',
-                  'Social Swirl transformed our design concepts into beutifully crafted, responsive websites with exceptional skill, Great Experience.'),
+                  'Social Swirl transformed our design concepts into beautifully crafted, responsive websites with exceptional skill. Great Experience.'),
               _buildCard('Careem', 'lib/assets/Kareem.jfif',
-                  "Social Swirl's backend team excels in Python and Django, delivering robust with infrastructure with quality and timeliness, a reliable choice!"),
+                  "Social Swirl's backend team excels in Python and Django, delivering robust infrastructure with quality and timeliness. A reliable choice!"),
               _buildCard('DK Group', 'lib/assets/K.jfif',
-                  "Social Swirl's design team exceeded expectations, bringing our brand to life with innovative designs, Thrilled with their work!"),
+                  "Social Swirl's design team exceeded expectations, bringing our brand to life with innovative designs. Thrilled with their work!"),
               _buildCard('Mat Communications Services', 'lib/assets/comm.jfif',
                   'Social Swirl\'s top-tier SEO services boosted our online presence with precise keywords and detailed analytics. Highly satisfied!'),
               _buildCard('Loja', 'lib/assets/m.jfif',
@@ -97,16 +99,16 @@ class _CompListState extends State<CompList> {
           const SizedBox(height: 20),
           CustomText(
             content: testimonial,
-            fontsize: 16,
+            fontsize: MediaQuery.of(context).size.width * 0.04,
             is_gilroy: false,
-            ),
+          ),
           const SizedBox(height: 10),
           CustomText(
             content: company,
-            fontsize: 18,
+            fontsize: MediaQuery.of(context).size.width * 0.05,
             color: Colors.blue,
             is_bold: true,
-            ),
+          ),
         ],
       ),
     );

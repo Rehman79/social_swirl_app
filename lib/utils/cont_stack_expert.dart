@@ -12,14 +12,14 @@ class ContStackExpert extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: 300,
+          height: size.height * 0.4,
           color: Colors.transparent,
         ),
         Positioned(
-          top: 80,
+          top: size.height * 0.1,
           child: Container(
             width: size.width,
-            height: 150,
+            height: size.height * 0.2,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [
@@ -34,7 +34,7 @@ class ContStackExpert extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 50,
+          top: size.height * 0.075,
           height: size.height * 0.25,
           width: size.width,
           child: ListView(

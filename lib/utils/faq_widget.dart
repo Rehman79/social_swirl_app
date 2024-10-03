@@ -21,6 +21,8 @@ class _FAQWidgetState extends State<FAQWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return ListView.builder(
       shrinkWrap: true,
       itemCount: widget.faqItems.length,
@@ -31,6 +33,7 @@ class _FAQWidgetState extends State<FAQWidget> {
               title: CustomText(
                 content: widget.faqItems[index].question,
                 is_bold: true,
+                fontsize: screenWidth * 0.05,
               ),
               trailing: Icon(
                 _expandedStates[index]
@@ -45,15 +48,21 @@ class _FAQWidgetState extends State<FAQWidget> {
               initiallyExpanded: _expandedStates[index],
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.symmetric(
+                    vertical: screenWidth * 0.04,
+                    horizontal: screenWidth * 0.05,
+                  ),
                   child: CustomText(
                     content: widget.faqItems[index].answer,
+                    fontsize: screenWidth * 0.045,
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+              ),
               child: Divider(),
             ),
           ],

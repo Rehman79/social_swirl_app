@@ -7,12 +7,14 @@ class LearnCard extends StatelessWidget {
   final String icon;
   final String heading;
   final String descr;
+
   @override
   Widget build(BuildContext context) {
-    double height=MediaQuery.of(context).size.height;
-    double width=MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
-      width: width*0.9,
+      width: width * 0.9,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -22,19 +24,30 @@ class LearnCard extends StatelessWidget {
             blurRadius: 8,
             offset: const Offset(0, 4),
           ),
-        ]
+        ],
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: 30,
+          SizedBox(height: height * 0.03),
+          Image.asset(
+            icon,
+            height: width * 0.12,
+            width: width * 0.12,
+            color: Colors.blue,
           ),
-          Image.asset(icon,height: 50,width: 50,color: Colors.blue,),
-          SizedBox(height: 20,),
-          CustomText(content: heading,is_bold: true,),
-          SizedBox(height: 20,),
-          CustomText(content: descr,is_gilroy: false,fontsize: 15),
-          SizedBox(height: 30,),
+          SizedBox(height: height * 0.02),
+          CustomText(
+            content: heading,
+            is_bold: true,
+            fontsize: width * 0.05,
+          ),
+          SizedBox(height: height * 0.02),
+          CustomText(
+            content: descr,
+            is_gilroy: false,
+            fontsize: width * 0.04,
+          ),
+          SizedBox(height: height * 0.03),
         ],
       ),
     );

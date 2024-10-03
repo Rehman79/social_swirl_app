@@ -16,9 +16,16 @@ class ExpertCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isLargeScreen = screenWidth > 600;
+    final double cardWidth = isLargeScreen ? screenWidth * 0.25 : 200;
+    final avatarRadius = isLargeScreen ? 60.0 : 50.0;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 18.0),
-      width: 200,
+      width: cardWidth,
+      height: screenHeight* 0.25,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -35,12 +42,12 @@ class ExpertCard extends StatelessWidget {
           const SizedBox(height: 20),
           CircleAvatar(
             backgroundImage: AssetImage(image),
-            radius: 50,
+            radius: avatarRadius,
           ),
           const SizedBox(height: 10),
-          CustomText(content: name),
+          CustomText(content: name,is_bold: true,),
           const SizedBox(height: 10),
-          CustomText(content: role, is_gilroy: false, fontsize: 14),
+          CustomText(content: role, fontsize: 14),
         ],
       ),
     );

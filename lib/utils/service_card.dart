@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ServiceCard extends StatelessWidget {
@@ -15,11 +14,15 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 18.0),
-          width: 200,
+          margin: EdgeInsets.symmetric(horizontal: width * 0.05), 
+          width: width * 0.9,
+          height: height*0.27,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -32,21 +35,21 @@ class ServiceCard extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(width * 0.05),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   imagePath,
-                  width: 50,
-                  height: 50,
+                  width: width * 0.15,
+                  height: width * 0.15,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   serviceName,
-                  style: const TextStyle(
-                    fontSize: 16,
+                  style: TextStyle(
+                    fontSize: width * 0.04,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
@@ -54,8 +57,8 @@ class ServiceCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   description,
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: TextStyle(
+                    fontSize: width * 0.035,
                     color: Colors.black54,
                   ),
                   textAlign: TextAlign.center,

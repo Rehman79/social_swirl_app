@@ -46,6 +46,9 @@ class _ProjectListState extends State<ProjectList> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
     return PageView.builder(
       controller: _pageController,
       itemCount: widget.imagePaths.length,
@@ -60,9 +63,9 @@ class _ProjectListState extends State<ProjectList> {
           duration: const Duration(milliseconds: 800),
           child: Center(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+              margin: EdgeInsets.symmetric(horizontal: width * 0.04, vertical: height * 0.04),
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(widget.imagePaths[index]),fit: BoxFit.cover),
+                image: DecorationImage(image: AssetImage(widget.imagePaths[index]), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
@@ -93,7 +96,7 @@ class _ProjectListState extends State<ProjectList> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(width * 0.05),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,10 +107,15 @@ class _ProjectListState extends State<ProjectList> {
                         is_bold: true,
                         is_white: true,
                         is_gilroy: false,
-                        fontsize: 35,
+                        fontsize: width * 0.08,
                       ),
                       const SizedBox(height: 5),
-                      CustomText(content: widget.descr[index],textAlign: TextAlign.start,fontsize: 17,is_white: true,),
+                      CustomText(
+                        content: widget.descr[index],
+                        textAlign: TextAlign.start,
+                        fontsize: width * 0.05,
+                        is_white: true,
+                      ),
                     ],
                   ),
                 ),

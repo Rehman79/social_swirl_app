@@ -3,16 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:social_swirl_app/utils/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({super.key,required this.content,required this.onTap});
- final String content;
- final VoidCallback onTap;
+  const CustomButton({super.key, required this.content, required this.onTap});
+
+  final String content;
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final buttonHeight = size.height * 0.06;
+    final buttonWidth = size.width * 0.4;
+    final fontSize = size.width * 0.04;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 50,
-        width: 100,
+        height: buttonHeight,
+        width: buttonWidth,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -22,9 +29,15 @@ class CustomButton extends StatelessWidget {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
-      borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8),
         ),
-        child: Center(child: CustomText(content: content,is_white: true,fontsize: 16,)),
+        child: Center(
+          child: CustomText(
+            content: content,
+            is_white: true,
+            fontsize: fontSize,
+          ),
+        ),
       ),
     );
   }

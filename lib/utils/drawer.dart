@@ -15,14 +15,19 @@ class CustomDrawer extends StatelessWidget {
         },
       );
     }
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isLargeScreen = screenWidth > 600;
+    final double imageScale = isLargeScreen ? 2.5 : 3;
+
     return Drawer(
       child: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
+        padding: EdgeInsets.only(top: isLargeScreen ? 40.0 : 20.0),
         child: Column(
           children: [
             Image.asset(
               'lib/assets/sa.png',
-              scale: 3,
+              scale: imageScale,
             ),
             Expanded(
               child: ListView(
@@ -30,7 +35,7 @@ class CustomDrawer extends StatelessWidget {
                 children: [
                   _buildListTile(context, "Services", '/services'),
                   _buildListTile(context, "Remote Jobs", '/remote_jobs'),
-                  _buildListTile(context, "Business", '/business'),
+                  _buildListTile(context, "Business Outsourcing", '/business'),
                   _buildListTile(context, "E-Learning", '/e_learning'),
                   _buildListTile(context, "About Us", '/about'),
                 ],

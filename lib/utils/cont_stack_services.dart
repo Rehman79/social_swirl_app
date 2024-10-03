@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:social_swirl_app/utils/service_card.dart';
 
@@ -7,18 +6,20 @@ class ContStackServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Stack(
       children: [
         Container(
           width: double.infinity,
-          height: 300,
+          height: size.height * 0.4,
           color: Colors.transparent,
         ),
         Positioned(
-          top: 80,
+          top: size.height * 0.1,
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 150,
+            width: size.width,
+            height: size.height * 0.15,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [
@@ -33,9 +34,9 @@ class ContStackServices extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 55,
-          height: 210,
-          width: MediaQuery.of(context).size.width,
+          top: size.height * 0.045,
+          height: size.height * 0.29,
+          width: size.width,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: const [
@@ -45,7 +46,6 @@ class ContStackServices extends StatelessWidget {
                 description:
                 'Expand your digital footprint and connect with your target audience through strategic digital marketing campaigns.',
               ),
-
               ServiceCard(
                 imagePath: 'lib/assets/coding.png',
                 serviceName: 'Web Development',

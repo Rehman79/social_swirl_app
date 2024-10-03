@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_swirl_app/utils/custom_button.dart';
-
 import 'custom_text.dart';
 
 class CareerCard extends StatelessWidget {
@@ -21,13 +20,16 @@ class CareerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(screenWidth * 0.05),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,18 +39,20 @@ class CareerCard extends StatelessWidget {
               child: Image.asset(
                 imagePath,
                 fit: BoxFit.cover,
-                height: 300,
+                height: screenHeight * 0.3,
                 width: double.infinity,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
 
+            // Title and Location
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomText(
                   content: title,
                   is_bold: true,
+                  fontsize: screenWidth * 0.05,
                 ),
                 Row(
                   children: [
@@ -60,8 +64,8 @@ class CareerCard extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       location,
-                      style: const TextStyle(
-                        fontSize: 14,
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
                         color: Colors.grey,
                       ),
                     ),
@@ -69,26 +73,31 @@ class CareerCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: screenHeight * 0.01),
 
             // Description
             CustomText(
               content: description,
               textAlign: TextAlign.start,
-              fontsize: 16,
+              fontsize: screenWidth * 0.04,
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: screenHeight * 0.01),
 
             // Recruitment Info
             CustomText(
               content: recruitmentInfo,
               textAlign: TextAlign.start,
-              fontsize: 16,
+              fontsize: screenWidth * 0.04,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
+
+            // Apply Button
             SizedBox(
               width: double.infinity,
-              child: CustomButton(content: 'Apply Now', onTap: (){})
+              child: CustomButton(
+                content: 'Apply Now',
+                onTap: () {},
+              ),
             ),
           ],
         ),

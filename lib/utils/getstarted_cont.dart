@@ -9,21 +9,34 @@ class GetstartedCont extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.blue,
       ),
       child: Column(
         children: [
-          SizedBox(height: 20,),
-          CustomText(content: 'Start a Project with us \n Today',is_white: true,is_bold: true,fontsize: 25,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: CustomText(content: 'Call us now to schedule as online appointment and get your project successfully completed',is_white: true,is_gilroy: false,fontsize: 17,),
+          SizedBox(height: screenWidth * 0.05),
+          CustomText(
+            content: 'Start a Project with us \n Today',
+            is_white: true,
+            is_bold: true,
+            fontsize: screenWidth * 0.06,
           ),
-          SizedBox(height: 20,),
-          CustomButton(content: 'Get Started', onTap: (){}),
-          SizedBox(height: 20,),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+            child: CustomText(
+              content:
+              'Call us now to schedule an online appointment and get your project successfully completed',
+              is_white: true,
+              is_gilroy: false,
+              fontsize: screenWidth * 0.04,
+            ),
+          ),
+          SizedBox(height: screenWidth * 0.05),
+          CustomButton(content: 'Get Started', onTap: () {}),
+          SizedBox(height: screenWidth * 0.05),
         ],
       ),
     );
